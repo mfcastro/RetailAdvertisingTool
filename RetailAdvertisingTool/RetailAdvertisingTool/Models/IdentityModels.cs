@@ -20,6 +20,8 @@ namespace RetailAdvertisingTool.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<AdvertisingOffer> AdvertisingOffer { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

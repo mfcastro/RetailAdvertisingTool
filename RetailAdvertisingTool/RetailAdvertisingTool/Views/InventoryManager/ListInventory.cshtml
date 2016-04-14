@@ -1,0 +1,74 @@
+﻿@model IEnumerable<RetailAdvertisingTool.Models.InventoryManager>
+
+@{
+    ViewBag.Title = "Available Inventory";
+}
+
+<h2>ListInventory</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostPrice__c)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnedPrice__c)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RetailCost__c)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentInventory__c)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InventoryOnOrder__c)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SampleInHouse__c)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostPrice__c)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnedPrice__c)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RetailCost__c)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentInventory__c)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InventoryOnOrder__c)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SampleInHouse__c)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+
+
+            <a class="btn btn-primary" href="@Url.Action("Details","InventoryManager")">Details</a>
+            <a class="btn btn-warning" href="@Url.Action("Edit","InventoryManager")">Edit</a>
+            <a class="btn btn-danger" href="@Url.Action("Delete","InventoryManager")">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

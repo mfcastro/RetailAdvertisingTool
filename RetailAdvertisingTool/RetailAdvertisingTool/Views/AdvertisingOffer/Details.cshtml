@@ -1,0 +1,139 @@
+﻿@model RetailAdvertisingTool.Models.AdvertisingOffer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AdvertisingOffer</h4>
+    <hr />
+    @*<dl class="dl-horizontal">*@
+
+
+        <div class="row">
+            <div class="col-md-6">
+              <d1>
+                  <dt>
+                      @Html.DisplayNameFor(model => model.TYOfferCopy)
+                  </dt>
+
+                  <dd>
+                      @Html.DisplayFor(model => model.TYOfferCopy)
+                  </dd>
+
+                  <dt>
+                      @Html.DisplayNameFor(model => model.TYOfferPrice)
+                  </dt>
+
+                  <dd>
+                      @Html.DisplayFor(model => model.TYOfferPrice)
+                  </dd>
+
+                  <dt>
+                      @Html.DisplayNameFor(model => model.TYItemToAdvertise)
+                  </dt>
+
+                  <dd>
+                      @Html.DisplayFor(model => model.TYItemToAdvertise)
+                  </dd>
+
+                  <dt>
+                      @Html.DisplayNameFor(model => model.TYOfferPrep)
+                  </dt>
+
+                  <dd>
+                      @Html.DisplayFor(model => model.TYOfferPrep)
+                  </dd>
+
+                  <dt>
+                      @Html.DisplayNameFor(model => model.TYOfferSaleThru)
+                  </dt>
+
+                  <dd>
+                      @Html.DisplayFor(model => model.TYOfferSaleThru)
+                  </dd>
+
+                  <dt>
+                      @Html.DisplayNameFor(model => model.TYInventoryLevel)
+                  </dt>
+
+                  <dd>
+                      @Html.DisplayFor(model => model.TYInventoryLevel)
+                  </dd>
+              </d1> 
+            </div>
+
+            <div class="col-md-6">
+                <d1>
+                    <dd>
+                        @Html.DisplayFor(model => model.MerchID)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LYOfferCopy)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LYOfferCopy)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LYOfferPrice)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LYOfferPrice)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LYItemToAdvertise)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LYItemToAdvertise)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LYOfferPrep)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LYOfferPrep)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LYOfferSaleThru)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LYOfferSaleThru)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LYInventoryLevel)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LYInventoryLevel)
+                    </dd>
+                </d1>   
+                </div>
+
+        </div>   
+
+
+
+
+
+@*<dt>
+        @Html.DisplayNameFor(model => model.MerchID)
+    </dt>*@
+
+
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "OfferList")
+</p>

@@ -1,7 +1,27 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model IEnumerable<RetailAdvertisingTool.Models.Buyer>
 
-<p>Use this area to provide additional information.</p>
+
+@{
+    ViewBag.Title = "Buyers";
+}
+<h2>@ViewBag.Title</h2>
+
+
+
+<table class="table table-striped">
+   <thead>
+       <tr>
+           <th>Name</th>
+           <th>Buying Office</th>
+       </tr>
+   </thead>
+        @foreach (var item in Model)
+        {
+          <tr>
+            <td>@item.Name</td>
+            <td>@item.Buying_Office__c</td>
+          </tr>
+        }
+    
+
+</table>

@@ -1,0 +1,115 @@
+﻿@model IEnumerable<RetailAdvertisingTool.Models.AdvertisingOffer>
+
+@{
+    ViewBag.Title = "OfferList";
+}
+
+<h2>OfferList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TYOfferCopy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TYOfferPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TYItemToAdvertise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TYOfferPrep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TYOfferSaleThru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TYInventoryLevel)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.MerchID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.LYOfferCopy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LYOfferPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LYItemToAdvertise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LYOfferPrep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LYOfferSaleThru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LYInventoryLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MerchID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TYOfferCopy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TYOfferPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TYItemToAdvertise)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TYOfferPrep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TYOfferSaleThru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TYInventoryLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MerchID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LYOfferCopy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LYOfferPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LYItemToAdvertise)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LYOfferPrep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LYOfferSaleThru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LYInventoryLevel)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+
+
+            <a class="btn btn-primary" href="@Url.Action("Details", "InventoryManager", new { id = item.Id})">Details</a>
+            <a class="btn btn-warning" href="@Url.Action("Edit","InventoryManager",new { id = item.Id})">Edit</a>
+            <a class="btn btn-danger" href="@Url.Action("Delete","InventoryManager", new { id = item.Id})">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+
