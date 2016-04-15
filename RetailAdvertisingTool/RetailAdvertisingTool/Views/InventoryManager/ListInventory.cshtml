@@ -4,7 +4,7 @@
     ViewBag.Title = "Available Inventory";
 }
 
-<h2>ListInventory</h2>
+<h2>Inventory List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -59,14 +59,9 @@
             @Html.DisplayFor(modelItem => item.SampleInHouse__c)
         </td>
         <td>
-            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-
-
-            <a class="btn btn-primary" href="@Url.Action("Details","InventoryManager")">Details</a>
-            <a class="btn btn-warning" href="@Url.Action("Edit","InventoryManager")">Edit</a>
-            <a class="btn btn-danger" href="@Url.Action("Delete","InventoryManager")">Delete</a>
+            @Html.ActionLink("Details", "Details", new { name = item.Name }, new {@class ="btn btn-primary btn-sm"} ) 
+            @Html.ActionLink("Edit", "Edit", new { name = item.Name }, new { @class = "btn btn-warning btn-sm" }) 
+            @Html.ActionLink("Delete", "Delete", new { name = item.Name }, new { @class = "btn btn-danger btn-sm" })
         </td>
     </tr>
 }

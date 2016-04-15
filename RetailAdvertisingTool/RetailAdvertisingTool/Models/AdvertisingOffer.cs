@@ -25,8 +25,8 @@ namespace RetailAdvertisingTool.Models
 
         [Display(Name = "TY Prep Info")]
         [DisplayFormat(DataFormatString = "{0:0,0}")]
+        //public double TYOfferPrep { get { return TYOfferSaleThru * TYInventoryLevel; } }
         public double TYOfferPrep { get; set; }
-
         [Display(Name = "TY ST%")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:P2}")]
         public double TYOfferSaleThru { get; set; }

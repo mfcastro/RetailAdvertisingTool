@@ -1,0 +1,90 @@
+﻿@model RetailAdvertisingTool.Models.InventoryManager
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CostPrice__c)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CostPrice__c)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.OwnedPrice__c)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.OwnedPrice__c)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.RetailCost__c)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RetailCost__c)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CurrentInventory__c)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CurrentInventory__c)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.InventoryOnOrder__c)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.InventoryOnOrder__c)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SampleInHouse__c)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SampleInHouse__c)
+                </dd>
+            </dl>
+
+        </div>
+        <div class="col-md-6">
+            <div class="img-thumbnail">
+                @Html.Raw(Model.ProductPicture__c)
+            </div>
+        </div>
+
+        </div>
+      
+    </div>
+    
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "ListInventory")
+</p>

@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<RetailAdvertisingTool.Models.AdvertisingOffer>
 
 @{
-    ViewBag.Title = "OfferList";
+    ViewBag.Title = "Offer List";
 }
 
-<h2>OfferList</h2>
+<h2>Created Offers</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -76,9 +76,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.TYInventoryLevel)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MerchID)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.LYOfferCopy)
         </td>
@@ -97,15 +95,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.LYInventoryLevel)
         </td>
+
         <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            @Html.DisplayFor(modelItem => item.MerchID)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm"})
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new {@class ="btn btn-warning btn-sm" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {@class ="btn btn-danger btn-sm"})
 
-
-            <a class="btn btn-primary" href="@Url.Action("Details", "InventoryManager", new { id = item.Id})">Details</a>
-            <a class="btn btn-warning" href="@Url.Action("Edit","InventoryManager",new { id = item.Id})">Edit</a>
-            <a class="btn btn-danger" href="@Url.Action("Delete","InventoryManager", new { id = item.Id})">Delete</a>
         </td>
     </tr>
 }

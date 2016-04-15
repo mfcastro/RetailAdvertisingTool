@@ -17,14 +17,9 @@ namespace RetailAdvertisingTool.Controllers
         }
 
         // GET: InventoryManager/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(String name)
         {
-            return View();
-        }
-
-        public ActionResult ListInventory()
-        {
-
+            
             var accessToken = Session["AccessToken"].ToString();
             var apiVersion = Session["ApiVersion"].ToString();
             var internalURI = Session["InstanceUrl"].ToString();
@@ -33,9 +28,34 @@ namespace RetailAdvertisingTool.Controllers
             //var client = new ForceClient(apiVersion,internalURI, accessToken);
             var client = new ForceClient(internalURI, accessToken, apiVersion);
 
-            List<InventoryManager> model = client.QueryAsync<InventoryManager>("SELECT Name, CostPrice__c, OwnedPrice__c, RetailCost__c, CurrentInventory__c, InventoryOnOrder__c, SampleInHouse__c FROM Inventory__c").Result.Records;
+            InventoryManager model = client.QueryAsync<InventoryManager>("SELECT Id, Name, CostPrice__c, OwnedPrice__c, RetailCost__c, CurrentInventory__c, InventoryOnOrder__c, SampleInHouse__c, ProductPicture__c FROM Inventory__c WHERE Name="+"'"+name+"'").Result.Records.SingleOrDefault();
 
             return View(model);
+           
+        }
+
+        public ActionResult ListInventory()
+        {
+            try
+            {
+                var accessToken = Session["AccessToken"].ToString();
+                var apiVersion = Session["ApiVersion"].ToString();
+                var internalURI = Session["InstanceUrl"].ToString();
+
+
+                //var client = new ForceClient(apiVersion,internalURI, accessToken);
+                var client = new ForceClient(internalURI, accessToken, apiVersion);
+
+                List<InventoryManager> model = client.QueryAsync<InventoryManager>("SELECT Id, Name, CostPrice__c, OwnedPrice__c, RetailCost__c, CurrentInventory__c, InventoryOnOrder__c, SampleInHouse__c FROM Inventory__c").Result.Records;
+
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index","InventoryManager");
+            }
+            
+            
         }
 
         // GET: InventoryManager/Create

@@ -12,15 +12,18 @@ namespace RetailAdvertisingTool.Models
         public string Name { get; set; }
 
         [Display(Name = "Cost $")]
-        [DisplayFormat(DataFormatString = "{0:0,0}")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
+        //[DataType(DataType.Currency)]
         public decimal CostPrice__c { get; set; }
 
         [Display(Name = "Owned $")]
-        [DisplayFormat(DataFormatString = "{0:0,0}")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
+        [DataType(DataType.Currency)]
         public decimal OwnedPrice__c { get; set; }
 
         [Display(Name = "Retail $")]
-        [DisplayFormat(DataFormatString = "{0:0,0}")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
+        [DataType(DataType.Currency)]
         public decimal RetailCost__c { get; set; }
 
         [Display(Name = "Current Inventory")]
@@ -34,5 +37,7 @@ namespace RetailAdvertisingTool.Models
         [Display(Name = "Sample In House")]
         [DisplayFormat(DataFormatString = "{0:0,0}")]
         public bool SampleInHouse__c { get; set; }
+
+        public string ProductPicture__c { get; set; }
     }
 }

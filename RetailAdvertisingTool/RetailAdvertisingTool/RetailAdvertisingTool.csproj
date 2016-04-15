@@ -268,10 +268,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MyClaimTypes.cs" />
+    <Compile Include="App_Start\MyClientSecrets.cs" />
+    <Compile Include="App_Start\MyRequestedScopes.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdvertisingOfferController.cs" />
+    <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Models\CalendarEventGroup.cs" />
+    <Compile Include="Models\CalendarViewModels.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoryManagerController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -362,6 +368,10 @@
     <Content Include="Views\AdvertisingOffer\Details.cshtml" />
     <Content Include="Views\AdvertisingOffer\Edit.cshtml" />
     <Content Include="Views\InventoryManager\ListInventory.cshtml" />
+    <Content Include="Views\InventoryManager\Index.cshtml" />
+    <Content Include="Views\Calendar.cshtml" />
+    <Content Include="Views\InventoryManager\Details.cshtml" />
+    <Content Include="Views\Calendar\UpcomingEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

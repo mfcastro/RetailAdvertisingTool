@@ -18,18 +18,26 @@ namespace RetailAdvertisingTool.Controllers
 
         public ActionResult About()
         {
-            var accessToken = Session["AccessToken"].ToString();
-            var apiVersion = Session["ApiVersion"].ToString();
-            var internalURI = Session["InstanceUrl"].ToString();
+            try
+            {
+                var accessToken = Session["AccessToken"].ToString();
+                var apiVersion = Session["ApiVersion"].ToString();
+                var internalURI = Session["InstanceUrl"].ToString();
 
 
-            //var client = new ForceClient(apiVersion,internalURI, accessToken);
-            var client = new ForceClient(internalURI, accessToken, apiVersion);
+                //var client = new ForceClient(apiVersion,internalURI, accessToken);
+                var client = new ForceClient(internalURI, accessToken, apiVersion);
 
-            List<Buyer> model = client.QueryAsync<Buyer>("SELECT Id, Name, Buying_Office__c FROM Buyer__c").Result.Records;
-            ViewBag.Message = "Your application description page.";
+                List<Buyer> model = client.QueryAsync<Buyer>("SELECT Id, Name, Buying_Office__c FROM Buyer__c").Result.Records;
+                ViewBag.Message = "Your application description page.";
 
-            return View(model);
+                return View(model);
+            }
+            catch(Exception e)
+            {
+                return RedirectToAction("Index", "InventoryManager");
+            }
+       
         }
 
         public ActionResult Contact()
