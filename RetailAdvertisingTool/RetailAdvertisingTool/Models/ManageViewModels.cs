@@ -83,4 +83,11 @@ namespace RetailAdvertisingTool.Models
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
+
+    public class AdvertisingOfferCreator
+    {
+        public AdvertisingOffer AdvertisingOffer { get; set; }
+        public List<InventoryManager> InventoryManager { get; set; }
+    }
+
 }

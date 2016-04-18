@@ -59,7 +59,5 @@ namespace RetailAdvertisingTool.Models
         [DisplayFormat(DataFormatString = "{0:0,0}")]
         public double LYInventoryLevel { get; set; }
 
-
-
     }
 }

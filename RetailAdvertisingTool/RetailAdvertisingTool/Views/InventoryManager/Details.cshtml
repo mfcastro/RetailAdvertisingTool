@@ -71,7 +71,15 @@
                 <dd>
                     @Html.DisplayFor(model => model.SampleInHouse__c)
                 </dd>
+
             </dl>
+
+            @if (Model.SampleInHouse__c == false)
+            {
+                <div><a class="btn btn-primary" href="@Url.Action("Contact", "EmailForm")">Order</a></div>
+               
+
+            }
 
         </div>
         <div class="col-md-6">
@@ -83,8 +91,11 @@
         </div>
       
     </div>
-    
+
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
+    @Html.ActionLink("Create Offer","Create", "AdvertisingOffer") |
     @Html.ActionLink("Back to List", "ListInventory")
 </p>

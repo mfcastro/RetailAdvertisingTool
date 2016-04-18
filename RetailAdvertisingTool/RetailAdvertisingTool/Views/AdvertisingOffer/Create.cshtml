@@ -1,11 +1,10 @@
-﻿@model RetailAdvertisingTool.Models.AdvertisingOffer
+﻿@model RetailAdvertisingTool.Models.AdvertisingOfferCreator
 
 @{
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
-
 
 @using (Html.BeginForm()) 
 {
@@ -20,50 +19,68 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    @Html.LabelFor(model => model.TYOfferCopy, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.LabelFor(model => Model.AdvertisingOffer.TYOfferCopy, htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
-                        @Html.EditorFor(model => model.TYOfferCopy, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.TYOfferCopy, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.AdvertisingOffer.TYOfferCopy, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AdvertisingOffer.TYOfferCopy, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.TYOfferPrice, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.LabelFor(model => model.AdvertisingOffer.TYOfferPrice, htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
-                        @Html.EditorFor(model => model.TYOfferPrice, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.TYOfferPrice, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.AdvertisingOffer.TYOfferPrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AdvertisingOffer.TYOfferPrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.AdvertisingOffer.TYItemToAdvertise, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.AdvertisingOffer.TYItemToAdvertise, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AdvertisingOffer.TYItemToAdvertise, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AdvertisingOffer.TYItemToAdvertise, htmlAttributes: new { @class = "control-label col-md-3" })
+                   <div class="col-md-9">
+                       <select class="form-control" name="AdvertisingOffer.TYItemToAdvertise">
+                           <option></option>
+                           @foreach (var item in Model.InventoryManager)
+                           {
+                               <option>@item.Name</option>
+                           }
+
+                       </select>
+
+                       
+                   </div>      
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AdvertisingOffer.TYOfferPrep, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.AdvertisingOffer.TYOfferPrep, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AdvertisingOffer.TYOfferPrep, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.TYItemToAdvertise, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.LabelFor(model => model.AdvertisingOffer.TYOfferSaleThru, htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
-                        @Html.EditorFor(model => model.TYItemToAdvertise, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.TYItemToAdvertise, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.AdvertisingOffer.TYOfferSaleThru, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AdvertisingOffer.TYOfferSaleThru, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.TYOfferPrep, htmlAttributes: new { @class = "control-label col-md-3" })
+                    @Html.LabelFor(model => model.AdvertisingOffer.TYInventoryLevel, htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
-                        @Html.EditorFor(model => model.TYOfferPrep, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.TYOfferPrep, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.TYOfferSaleThru, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @Html.EditorFor(model => model.TYOfferSaleThru, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.TYOfferSaleThru, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.TYInventoryLevel, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @Html.EditorFor(model => model.TYInventoryLevel, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.TYInventoryLevel, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.AdvertisingOffer.TYInventoryLevel, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AdvertisingOffer.TYInventoryLevel, "", new { @class = "text-danger" })
                     </div>
                 </div>
             </div>
@@ -79,50 +96,50 @@
                </div>*@
 
                <div class="form-group">
-                   @Html.LabelFor(model => model.LYOfferCopy, htmlAttributes: new { @class = "control-label col-md-3" })
+                   @Html.LabelFor(model => model.AdvertisingOffer.LYOfferCopy, htmlAttributes: new { @class = "control-label col-md-3" })
                    <div class="col-md-9">
-                       @Html.EditorFor(model => model.LYOfferCopy, new { htmlAttributes = new { @class = "form-control" } })
-                       @Html.ValidationMessageFor(model => model.LYOfferCopy, "", new { @class = "text-danger" })
+                       @Html.EditorFor(model => model.AdvertisingOffer.LYOfferCopy, new { htmlAttributes = new { @class = "form-control" } })
+                       @Html.ValidationMessageFor(model => model.AdvertisingOffer.LYOfferCopy, "", new { @class = "text-danger" })
                    </div>
                </div>
 
                <div class="form-group">
-                   @Html.LabelFor(model => model.LYOfferPrice, htmlAttributes: new { @class = "control-label col-md-3" })
+                   @Html.LabelFor(model => model.AdvertisingOffer.LYOfferPrice, htmlAttributes: new { @class = "control-label col-md-3" })
                    <div class="col-md-9">
-                       @Html.EditorFor(model => model.LYOfferPrice, new { htmlAttributes = new { @class = "form-control" } })
-                       @Html.ValidationMessageFor(model => model.LYOfferPrice, "", new { @class = "text-danger" })
+                       @Html.EditorFor(model => model.AdvertisingOffer.LYOfferPrice, new { htmlAttributes = new { @class = "form-control" } })
+                       @Html.ValidationMessageFor(model => model.AdvertisingOffer.LYOfferPrice, "", new { @class = "text-danger" })
                    </div>
                </div>
 
                <div class="form-group">
-                   @Html.LabelFor(model => model.LYItemToAdvertise, htmlAttributes: new { @class = "control-label col-md-3" })
+                   @Html.LabelFor(model => model.AdvertisingOffer.LYItemToAdvertise, htmlAttributes: new { @class = "control-label col-md-3" })
                    <div class="col-md-9">
-                       @Html.EditorFor(model => model.LYItemToAdvertise, new { htmlAttributes = new { @class = "form-control" } })
-                       @Html.ValidationMessageFor(model => model.LYItemToAdvertise, "", new { @class = "text-danger" })
+                       @Html.EditorFor(model => model.AdvertisingOffer.LYItemToAdvertise, new { htmlAttributes = new { @class = "form-control" } })
+                       @Html.ValidationMessageFor(model => model.AdvertisingOffer.LYItemToAdvertise, "", new { @class = "text-danger" })
                    </div>
                </div>
 
                <div class="form-group">
-                   @Html.LabelFor(model => model.LYOfferPrep, htmlAttributes: new { @class = "control-label col-md-3" })
+                   @Html.LabelFor(model => model.AdvertisingOffer.LYOfferPrep, htmlAttributes: new { @class = "control-label col-md-3" })
                    <div class="col-md-9">
-                       @Html.EditorFor(model => model.LYOfferPrep, new { htmlAttributes = new { @class = "form-control" } })
-                       @Html.ValidationMessageFor(model => model.LYOfferPrep, "", new { @class = "text-danger" })
+                       @Html.EditorFor(model => model.AdvertisingOffer.LYOfferPrep, new { htmlAttributes = new { @class = "form-control" } })
+                       @Html.ValidationMessageFor(model => model.AdvertisingOffer.LYOfferPrep, "", new { @class = "text-danger" })
                    </div>
                </div>
 
                <div class="form-group">
-                   @Html.LabelFor(model => model.LYOfferSaleThru, htmlAttributes: new { @class = "control-label col-md-3" })
+                   @Html.LabelFor(model => model.AdvertisingOffer.LYOfferSaleThru, htmlAttributes: new { @class = "control-label col-md-3" })
                    <div class="col-md-9">
-                       @Html.EditorFor(model => model.LYOfferSaleThru, new { htmlAttributes = new { @class = "form-control" } })
-                       @Html.ValidationMessageFor(model => model.LYOfferSaleThru, "", new { @class = "text-danger" })
+                       @Html.EditorFor(model => model.AdvertisingOffer.LYOfferSaleThru, new { htmlAttributes = new { @class = "form-control" } })
+                       @Html.ValidationMessageFor(model => model.AdvertisingOffer.LYOfferSaleThru, "", new { @class = "text-danger" })
                    </div>
                </div>
 
                <div class="form-group">
-                   @Html.LabelFor(model => model.LYInventoryLevel, htmlAttributes: new { @class = "control-label col-md-3" })
+                   @Html.LabelFor(model => model.AdvertisingOffer.LYInventoryLevel, htmlAttributes: new { @class = "control-label col-md-3" })
                    <div class="col-md-9">
-                       @Html.EditorFor(model => model.LYInventoryLevel, new { htmlAttributes = new { @class = "form-control" } })
-                       @Html.ValidationMessageFor(model => model.LYInventoryLevel, "", new { @class = "text-danger" })
+                       @Html.EditorFor(model => model.AdvertisingOffer.LYInventoryLevel, new { htmlAttributes = new { @class = "form-control" } })
+                       @Html.ValidationMessageFor(model => model.AdvertisingOffer.LYInventoryLevel, "", new { @class = "text-danger" })
                    </div>
                </div>
            </div> 

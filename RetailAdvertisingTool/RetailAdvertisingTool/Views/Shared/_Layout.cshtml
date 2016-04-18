@@ -4,9 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Retail Advertising Tool</title>
+
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/all.css")
+    @Styles.Render("~/Content/fullcalendar.min.css")
+
+
+    @*@Styles.Render("~/Content/fullcalendarcss")*@
     @Scripts.Render("~/bundles/modernizr")
 
+   
+    @*@Styles.Render("~/Content/fullcalendar.print.css")
+    @Scripts.Render("~/Scripts/moment.min.js")
+    @Scripts.Render("~/Scripts/jquery.min.js")
+    @Scripts.Render("~/Scripts/fullcalendar.min.js")
+    @Scripts.Render("~/Scripts/CalenderCreator.js")*@
+
+
+   
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -29,6 +44,7 @@
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -38,7 +54,9 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/fullcalendarjs");
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

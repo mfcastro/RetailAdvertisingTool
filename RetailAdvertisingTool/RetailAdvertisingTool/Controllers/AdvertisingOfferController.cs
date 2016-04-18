@@ -1,4 +1,5 @@
 ﻿using RetailAdvertisingTool.Models;
+using Salesforce.Force;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace RetailAdvertisingTool.Controllers
 {
+    [Authorize]
     public class AdvertisingOfferController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
@@ -32,7 +34,29 @@ namespace RetailAdvertisingTool.Controllers
         // GET: AdvertisingOffer/Create
         public ActionResult Create()
         {
-            return View();
+            try
+            {
+                var accessToken = Session["AccessToken"].ToString();
+                var apiVersion = Session["ApiVersion"].ToString();
+                var internalURI = Session["InstanceUrl"].ToString();
+
+                var client = new ForceClient(internalURI, accessToken, apiVersion);
+
+                AdvertisingOfferCreator model = new AdvertisingOfferCreator();
+
+                model.InventoryManager = client.QueryAsync<InventoryManager>("SELECT Name FROM Inventory__c").Result.Records;
+
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index", "InventoryManager");
+            }
+           
+
+            
+
+           // return View();
         }
 
         // POST: AdvertisingOffer/Create

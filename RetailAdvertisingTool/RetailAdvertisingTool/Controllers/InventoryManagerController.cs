@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace RetailAdvertisingTool.Controllers
 {
+    [Authorize]
     public class InventoryManagerController : Controller
     {
         // GET: InventoryManager
@@ -34,6 +35,8 @@ namespace RetailAdvertisingTool.Controllers
            
         }
 
+
+
         public ActionResult ListInventory()
         {
             try
@@ -54,8 +57,30 @@ namespace RetailAdvertisingTool.Controllers
             {
                 return RedirectToAction("Index","InventoryManager");
             }
-            
-            
+        }
+
+
+        public ActionResult ListInventoryPictures()
+        {
+            try
+            {
+                var accessToken = Session["AccessToken"].ToString();
+                var apiVersion = Session["ApiVersion"].ToString();
+                var internalURI = Session["InstanceUrl"].ToString();
+
+
+                //var client = new ForceClient(apiVersion,internalURI, accessToken);
+                var client = new ForceClient(internalURI, accessToken, apiVersion);
+
+                List<InventoryManager> model = client.QueryAsync<InventoryManager>("SELECT Id, Name, CostPrice__c, OwnedPrice__c, RetailCost__c, CurrentInventory__c, InventoryOnOrder__c, SampleInHouse__c, ProductPicture__c FROM Inventory__c").Result.Records;
+
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index", "InventoryManager");
+            }
+
         }
 
         // GET: InventoryManager/Create

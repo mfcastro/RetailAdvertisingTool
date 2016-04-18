@@ -1,0 +1,27 @@
+﻿@model IEnumerable<RetailAdvertisingTool.Models.InventoryManager>
+
+@{
+    ViewBag.Title = "ListInventoryPictures";
+}
+
+<h2>Inventory List</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("List View", "ListInventory", "InventoryManager")
+</p>
+
+<div class="row">
+@foreach (var item in Model)
+{
+    <div class="img-thumbnail">
+
+        @Html.Raw(item.ProductPicture__c)
+        @Html.ActionLink("Details", "Details", item, new { @class = "btn btn-primary btn-sm" })
+
+    </div>
+}
+
+
+</div>
