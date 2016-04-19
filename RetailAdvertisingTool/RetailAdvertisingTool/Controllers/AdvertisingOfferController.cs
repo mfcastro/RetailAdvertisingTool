@@ -12,6 +12,7 @@ namespace RetailAdvertisingTool.Controllers
     public class AdvertisingOfferController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
+        Random rand = new Random(); 
 
         // GET: AdvertisingOffer
         public ActionResult Index()
@@ -43,8 +44,7 @@ namespace RetailAdvertisingTool.Controllers
                 var client = new ForceClient(internalURI, accessToken, apiVersion);
 
                 AdvertisingOfferCreator model = new AdvertisingOfferCreator();
-
-                model.InventoryManager = client.QueryAsync<InventoryManager>("SELECT Name FROM Inventory__c").Result.Records;
+                model.InventoryManager = client.QueryAsync<InventoryManager>("SELECT Name, CurrentInventory__c FROM Inventory__c").Result.Records;
 
                 return View(model);
             }

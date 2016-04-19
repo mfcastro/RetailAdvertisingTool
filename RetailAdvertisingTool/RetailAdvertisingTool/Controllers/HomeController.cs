@@ -13,6 +13,17 @@ namespace RetailAdvertisingTool.Controllers
     {
         public ActionResult Index()
         {
+            try
+            {
+                if (Session["AccessToken"].ToString() != null)
+                {
+                    ViewBag.button = "Connected";
+                }
+            }catch(Exception e)
+            {
+                ViewBag.button = "Connect to Salesforce";
+            }
+
             return View();
         }
 

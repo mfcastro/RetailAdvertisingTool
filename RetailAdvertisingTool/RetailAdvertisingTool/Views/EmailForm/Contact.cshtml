@@ -1,43 +1,86 @@
-﻿@model RetailAdvertisingTool.Models.EmailForm
+﻿@model RetailAdvertisingTool.Models.EmailFormObjects
+
 @{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Order Sample";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <h4>Send your comments.</h4>
+    <h4>Fill out the below form to request a sample.</h4>
     <hr />
-    <div class="form-group">
-        @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.FromName)
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.FromEmail)
-        </div>
-    </div>
 
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Message)
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group contact_form_view">
+                @Html.LabelFor(m => m.EmailForm.FromName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.EmailForm.FromName, new { @class = "form-control contact_form_view" })
+                    @Html.ValidationMessageFor(m => m.EmailForm.FromName)
+                </div>
+            </div>
+
+            <div class="form-group contact_form_view">
+                @Html.LabelFor(m => m.EmailForm.FromEmail, new { @class = "col-md-2 control-label contact_form_view" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.EmailForm.FromEmail, new { @class = "form-control contact_form_view" })
+                    @Html.ValidationMessageFor(m => m.EmailForm.FromEmail)
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group contact_form_view">
+                @Html.LabelFor(model => model.EmailForm.VendorEmail, htmlAttributes: new { @class = "control-label col-md-2 contact_form_view" })
+                <div class="col-md-10">
+                    <select class="form-control contact_form_view" name="EmailForm.VendorEmail">
+                        <option></option>
+                        @foreach (var item in Model.VendorInfo)
+                        {
+                            <option>@item.Email</option>
+                        }
+
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group contact_form_view">
+                @*@Html.LabelFor(model => model., htmlAttributes: new { @class = "control-label col-md-3" })*@
+                <label class="col-md-2">Product Name</label>
+                <div class="col-md-10">
+                    <select class="form-control contact_form_view" name="EmailForm.ProductName">
+                        <option></option>
+                        @foreach (var item in Model.InventoryManager)
+                {
+                            <option>@item.Name</option>
+                        }
+
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group contact_form_view">
+                @Html.LabelFor(m => m.EmailForm.Message, new { @class = "col-md-2 control-label contact_form_view" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.EmailForm.Message, new { @class = "form-control contact_form_view" })
+                    @Html.ValidationMessageFor(m => m.EmailForm.Message)
+                </div>
+            </div>
+            <div class="form-group contact_form_view">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-primary" value="Send" />
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Send" />
-        </div>
-    </div>
+    
 }
 
 @section Scripts {

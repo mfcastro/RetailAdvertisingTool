@@ -27,6 +27,10 @@ textarea {
     margin-top: 20px;
 }
 
-.inventory_image_view{
-    width:140px;
+.contact_form_view{
+    margin-bottom:20px;
+}
+
+.contact_text_area{
+    height:1400px;
 }

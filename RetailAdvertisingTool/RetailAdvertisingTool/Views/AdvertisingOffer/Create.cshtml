@@ -34,15 +34,6 @@
                     </div>
                 </div>
 
-                @*<div class="form-group">
-                    @Html.LabelFor(model => model.AdvertisingOffer.TYItemToAdvertise, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @Html.EditorFor(model => model.AdvertisingOffer.TYItemToAdvertise, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.AdvertisingOffer.TYItemToAdvertise, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
-
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.AdvertisingOffer.TYItemToAdvertise, htmlAttributes: new { @class = "control-label col-md-3" })
                    <div class="col-md-9">
@@ -54,8 +45,6 @@
                            }
 
                        </select>
-
-                       
                    </div>      
                 </div>
 
@@ -79,21 +68,22 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.AdvertisingOffer.TYInventoryLevel, htmlAttributes: new { @class = "control-label col-md-3" })
                     <div class="col-md-9">
-                        @Html.EditorFor(model => model.AdvertisingOffer.TYInventoryLevel, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.AdvertisingOffer.TYInventoryLevel, "", new { @class = "text-danger" })
+                        <select class="form-control" name="AdvertisingOffer.TYInventoryLevel">
+                            <option></option>
+                            @foreach (var item in Model.InventoryManager)
+                            {
+                                <option>@item.CurrentInventory__c</option>
+                            }
+
+                        </select>
                     </div>
                 </div>
+
+
             </div>
 
 
            <div class="col-md-6">
-               @*<div class="form-group">
-                   @Html.LabelFor(model => model.MerchID, htmlAttributes: new { @class = "control-label col-md-2" })
-                   <div class="col-md-10">
-                       @Html.EditorFor(model => model.MerchID, new { htmlAttributes = new { @class = "form-control" } })
-                       @Html.ValidationMessageFor(model => model.MerchID, "", new { @class = "text-danger" })
-                   </div>
-               </div>*@
 
                <div class="form-group">
                    @Html.LabelFor(model => model.AdvertisingOffer.LYOfferCopy, htmlAttributes: new { @class = "control-label col-md-3" })
@@ -111,11 +101,18 @@
                    </div>
                </div>
 
+
                <div class="form-group">
                    @Html.LabelFor(model => model.AdvertisingOffer.LYItemToAdvertise, htmlAttributes: new { @class = "control-label col-md-3" })
                    <div class="col-md-9">
-                       @Html.EditorFor(model => model.AdvertisingOffer.LYItemToAdvertise, new { htmlAttributes = new { @class = "form-control" } })
-                       @Html.ValidationMessageFor(model => model.AdvertisingOffer.LYItemToAdvertise, "", new { @class = "text-danger" })
+                       <select class="form-control" name="AdvertisingOffer.LYItemToAdvertise">
+                           <option></option>
+                           @foreach (var item in Model.InventoryManager)
+                           {
+                               <option>@item.Name</option>
+                           }
+
+                       </select>
                    </div>
                </div>
 
@@ -134,14 +131,24 @@
                        @Html.ValidationMessageFor(model => model.AdvertisingOffer.LYOfferSaleThru, "", new { @class = "text-danger" })
                    </div>
                </div>
-
+ 
                <div class="form-group">
                    @Html.LabelFor(model => model.AdvertisingOffer.LYInventoryLevel, htmlAttributes: new { @class = "control-label col-md-3" })
                    <div class="col-md-9">
-                       @Html.EditorFor(model => model.AdvertisingOffer.LYInventoryLevel, new { htmlAttributes = new { @class = "form-control" } })
-                       @Html.ValidationMessageFor(model => model.AdvertisingOffer.LYInventoryLevel, "", new { @class = "text-danger" })
+                       <select class="form-control" name="AdvertisingOffer.LYInventoryLevel">
+                           <option></option>
+                           @foreach (var item in Model.InventoryManager)
+                           {
+                               <option>@item.CurrentInventory__c</option>
+                           }
+
+                       </select>
                    </div>
                </div>
+
+
+
+
            </div> 
 
         </div>
@@ -156,7 +163,6 @@
 }
 
 <div>
-   @* @Html.ActionLink("Back to List", "Index")*@
     @Html.ActionLink("Go to List", "OfferList")
 </div>
 

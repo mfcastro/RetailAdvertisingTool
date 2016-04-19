@@ -12,7 +12,17 @@ namespace RetailAdvertisingTool.Models
         public string FromName { get; set; }
         [Required, Display(Name = "Your email"), EmailAddress]
         public string FromEmail { get; set; }
-        [Required]
+
+        
         public string Message { get; set; }
+
+        [Required]
+        [Display(Name ="Vendor Email")]
+        public string VendorEmail { get; set; }
+
+        [Required]
+        [Display(Name = "Product Name")]
+        public string ProductName { get; set; }
+
     }
 }

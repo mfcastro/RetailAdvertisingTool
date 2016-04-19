@@ -37,7 +37,8 @@ namespace RetailAdvertisingTool
             bundles.Add(new ScriptBundle("~/bundles/fullcalendarjs").Include(
                 "~/Scripts/jquery-ui-{version}.min.js",
                 "~/Scripts/moment.min.js",
-                "~/Scripts/fullcalendar.min.js"));
+                "~/Scripts/fullcalendar.min.js"
+                ));
 
 
 

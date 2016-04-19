@@ -35,6 +35,9 @@ namespace RetailAdvertisingTool.Models
         [DisplayFormat(DataFormatString = "{0:0,0}")]
         public double TYInventoryLevel { get; set; }
 
+        private string merchId;
+        Random rand = new Random();
+
         [Display(Name = "MerchID")]
         public string MerchID { get; set; }
 

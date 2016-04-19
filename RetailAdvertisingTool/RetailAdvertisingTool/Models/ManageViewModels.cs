@@ -90,4 +90,13 @@ namespace RetailAdvertisingTool.Models
         public List<InventoryManager> InventoryManager { get; set; }
     }
 
+    public class EmailFormObjects
+    {
+        public EmailForm EmailForm { get; set; }
+        public List<Vendor> VendorInfo { get; set; }
+        public List<InventoryManager> InventoryManager { get; set; }
+
+
+    }
+
 }
