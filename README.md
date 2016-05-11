@@ -23,9 +23,28 @@ This calendar uses Google Calendar API to get the information for a google calen
 ![Screen Shot](https://github.com/mfcastro/RetailAdvertisingTool/blob/master/Screenshots/create%20offer%20page.PNG)
 Pulls in product information from a Salesforce database using the Salesforce REST API. For example the TY Product description is a pulldown that has all the available samples.
 <br>
-
-![Screen Shot](https://github.com/mfcastro/RetailAdvertisingTool/blob/master/Screenshots/inventory%20item%20page%20view.PNG)
-![Screen Shot](https://github.com/mfcastro/RetailAdvertisingTool/blob/master/Screenshots/inventory%20list%20page.PNG)
-![Screen Shot](https://github.com/mfcastro/RetailAdvertisingTool/blob/master/Screenshots/inventory%20list%20picture%20view%20page.PNG)
+######Created offers page
 ![Screen Shot](https://github.com/mfcastro/RetailAdvertisingTool/blob/master/Screenshots/offer%20list%20page.PNG)
+This page lists all the offers and their details that were created in the **Create offer Page**
+
+
+######Sample Management Inventory List Page
+![Screen Shot](https://github.com/mfcastro/RetailAdvertisingTool/blob/master/Screenshots/inventory%20list%20page.PNG)
+This page shows all the available inventory that the user has access to.
+
+
+######Sample Management Inventory List Page (Picture View)
+![Screen Shot](https://github.com/mfcastro/RetailAdvertisingTool/blob/master/Screenshots/inventory%20list%20picture%20view%20page.PNG)
+This is the same information as the Inventory List Page, it just displays image thumbnails. 
+
+
+######Sample Mangement Item Description Page
+![Screen Shot](https://github.com/mfcastro/RetailAdvertisingTool/blob/master/Screenshots/inventory%20item%20page%20view.PNG)
+This shows the image description along with a picture of the image. This information is pulled from Salesforce. An optional **Order** pops up when the sample is not in house and needs to be ordered. The **Order** button redirects the user to the *Vendor Email Form*. 
+
+###### Sample Managment Vendor Email Form
 ![Screen Shot](https://github.com/mfcastro/RetailAdvertisingTool/blob/master/Screenshots/Email%20contact%20form.PNG)
+This form pulls in Vendor Emails from Salesforce. It then sends a HTML email to vendor with the item information that was selected from the dropdown. The items that are shown in the dropdown are all the items that the user does not have in house. 
+
+######Example of Vendor Email Message
+
