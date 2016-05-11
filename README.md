@@ -47,4 +47,6 @@ This shows the image description along with a picture of the image. This informa
 This form pulls in Vendor Emails from Salesforce. It then sends a HTML email to vendor with the item information that was selected from the dropdown. The items that are shown in the dropdown are all the items that the user does not have in house. 
 
 ######Example of Vendor Email Message
+![Screen Shot](https://github.com/mfcastro/RetailAdvertisingTool/blob/master/Screenshots/sample%20email.PNG)
+This a the sample eamil that is sent the the Vendor email that is pulled from Salesforce. The email shows who sent the message and their email address to reach them. I shows in bold what item was requested. It also shows the additional comments that the user wrote.
 
