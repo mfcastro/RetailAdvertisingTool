@@ -12,6 +12,7 @@ using Salesforce.Force;
 
 namespace RetailAdvertisingTool.Controllers
 {
+    [Authorize]
     public class EmailFormController : Controller
     {
         // GET: EmailForm
@@ -146,7 +147,7 @@ namespace RetailAdvertisingTool.Controllers
                     {
 
                         UserName = "mfcastro50@outlook.com",
-                        Password = ""  //REMOVE BEFORE SENDING TO GIT!!!!
+                        Password = "Redzone1?"  //REMOVE BEFORE SENDING TO GIT!!!!
                     };
                     smtp.Credentials = credential;
                     smtp.Host = "smtp-mail.outlook.com";
