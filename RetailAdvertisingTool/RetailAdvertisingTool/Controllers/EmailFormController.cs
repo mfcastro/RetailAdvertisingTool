@@ -146,8 +146,8 @@ namespace RetailAdvertisingTool.Controllers
                     var credential = new NetworkCredential
                     {
 
-                        UserName = "mfcastro50@outlook.com",
-                        Password = "Redzone1?"  //REMOVE BEFORE SENDING TO GIT!!!!
+                        UserName = "XXXXX",
+                        Password = "XXXXX"  //REMOVE BEFORE SENDING TO GIT!!!!
                     };
                     smtp.Credentials = credential;
                     smtp.Host = "smtp-mail.outlook.com";
